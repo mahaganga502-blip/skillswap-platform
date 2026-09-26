@@ -1,0 +1,99 @@
+# SkillSwap Platform
+
+users = []
+while True:
+    print("\n===== SKILLSWAP PLATFORM =====")
+    print("1. Register User")
+    print("2. View Users")
+    print("3. Find Skill")
+    print("4. Exit")
+    choice = input("Enter your choice: ")
+    if choice == "1":
+        name = input("Enter your name: ")
+        teach = input("Skill you can teach: ")
+        learn = input("Skill you want to learn: ")
+        users.append({
+            "name": name,
+            "teach": teach,
+            "learn": learn
+        })
+        print("User registered successfully!")
+    elif choice == "2":
+        print("\n----- Registered Users -----")
+        if not users:
+            print("No users registered.")
+        else:
+            for user in users:
+                print("Name:", user["name"])
+                print("Can Teach:", user["teach"])
+                print("Wants to Learn:", user["learn"])
+                print("---------------------------")
+    elif choice == "3":
+        skill = input("Enter the skill you want to learn: ")
+        print("\n----- Skill Matches -----")
+        found = False
+        for user in users:
+            if user["teach"].lower() == skill.lower():
+                print(user["name"], "can teach", user["teach"])
+                found = True
+        if not found:
+            print("No matching user found.")
+    elif choice == "4":
+        print("Thank you for using SkillSwap!")
+        break
+    else:
+
+OUTPUT:
+===== SKILLSWAP PLATFORM =====
+1. Register User
+2. View Users
+3. Find Skill
+4. Exit
+Enter your choice: 1
+Enter your name: MAHA
+Skill you can teach: PYTHON
+Skill you want to learn: WEB DESIGN
+User registered successfully!
+===== SKILLSWAP PLATFORM =====
+1. Register User
+2. View Users
+3. Find Skill
+4. Exit
+Enter your choice: 1
+Enter your name: KAVERI
+Skill you can teach: WEB DESIGN
+Skill you want to learn: PYTHON
+User registered successfully!
+===== SKILLSWAP PLATFORM =====
+1. Register User
+2. View Users
+3. Find Skill
+4. Exit
+Enter your choice: 2
+----- Registered Users -----
+Name: MAHA
+Can Teach: PYTHON
+Wants to Learn: WEB DESIGN
+---------------------------
+Name: KAVERI
+Can Teach: WEB DESIGN
+Wants to Learn: PYTHON
+---------------------------
+===== SKILLSWAP PLATFORM =====
+1. Register User
+2. View Users
+3. Find Skill
+4. Exit
+Enter your choice: 3
+Enter the skill you want to learn: PYTHON
+----- Skill Matches -----
+MAHA can teach PYTHON
+===== SKILLSWAP PLATFORM =====
+1. Register User
+2. View Users
+3. Find Skill
+4. Exit
+Enter your choice: 4
+Thank you for using SkillSwap!
+
+        print("Invalid choice. Please try again.")
